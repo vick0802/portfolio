@@ -1,0 +1,343 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'poppins', sans-serif;
+}
+
+body{
+
+	background:var(--primary-color);
+	padding-top: 15px;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+/*----------------------------------------------DARK MODE---------------------------------------------------------*/
+#icon1{
+	cursor: pointer;
+	width: 20px;
+}
+
+nav ul{
+	flex:1;
+	text-align: right;
+}
+
+:root{
+	--primary-color:#eff4fd;
+	--secondary-color:black;
+	--tertiary-color:#606163;
+	--fourth-color:darkcyan;
+}
+
+.dark-theme{
+		--primary-color:#1B2631;
+	    --secondary-color:#fff;
+	    --tertiary-color:#fff;
+	    --fourth-color:#fff;
+
+}
+/*----------------------------------------------NAV BAR---------------------------------------------------------*/
+nav{
+	display: flex;
+	width: 100%;
+	margin: auto;
+	padding: 20px 0;
+	align-items: center;
+	justify-content: space-between;
+	position: sticky;
+	top: 0;
+	z-index: 12;
+	background:var(--primary-color);
+	padding: 5px 8%;
+}
+
+nav ul li{
+	display: inline-block;
+	list-style: none;
+	margin: 10px 25px;
+}
+
+nav ul li a{
+	text-decoration: none;
+	color: var(--secondary-color);
+	font-weight: bold;
+	transition: 0.5s;
+}
+
+nav ul li a:hover{
+
+	color: darkcyan;
+}
+
+nav h1{
+	font-size: 40px;
+	color: var(--secondary-color);
+}
+nav a{
+	text-decoration: none;
+}
+
+span{
+	color: darkcyan;
+}
+
+/*----------------------------------------------LOGIN FORM---------------------------------------------------------*/
+
+.box{
+	margin-bottom: 200px;
+	position: relative;
+	width: 500px;
+	height: 480px;
+	background: #1c1c1c;
+	border-radius: 8px;
+	overflow: hidden;
+	top: 50px;
+	left: 450px;
+}
+
+.box::before{
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 380px;
+	height: 420px;
+	background: linear-gradient(0deg, transparent,#45f3ff, #45f3ff);
+	transform-origin: bottom right;
+	animation: animate 6s linear infinite;
+}
+
+
+.box::after{
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 380px;
+	height: 420px;
+	background: linear-gradient(0deg, transparent,#d400d4, #d400d4);
+	transform-origin: bottom right;
+	animation: animate 6s linear infinite;
+	animation-delay: -3s;
+}
+
+
+
+@keyframes animate
+{
+	0%{
+		transform: rotate(0deg);
+	}
+
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
+.form{
+	position: absolute;
+	inset: 2px;
+	border-radius: 8px;
+	background: #28292d;
+	z-index: 10;
+	padding: 50px 40px;
+	display: flex;
+	flex-direction: column;
+}
+
+.form h1{
+	color: #45f3ff;
+	font-weight: 500;
+	text-align: center;
+	letter-spacing: 0.1em;
+}
+
+.inputbox{
+	position: relative;
+	width: 300px;
+	margin-top: 35px;
+}
+
+.inputbox input{
+	position: relative;
+	width: 100%;
+	padding: 20px 10px 10px;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #23242a;
+	font-size: 1em;
+	letter-spacing: 0.05em;
+	z-index: 10;
+}
+
+.inputbox span{
+	position: absolute;
+	left: 0;
+	padding: 20px 0px 10px;
+	font-size: 1em;
+	color: #8f8f8f;
+	pointer-events: none;
+	letter-spacing: 0.05em;
+	transition: 0.5s;
+}
+
+.inputbox input:valid ~ span,
+.inputbox input:focus ~ span
+{
+	color: #45f3ff;
+	transform: translateX(0px) translateY(-34px);
+	font-size: 0.75em;
+}
+
+.inputbox i{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 420px;
+	height: 2px;
+	background: #45f3ff;
+	border-radius: 4px;
+	transition: 0.5s;
+	pointer-events: none;
+}
+
+.inputbox input:valid ~ i,
+.inputbox input:focus ~ i
+{
+	height: 44px;
+
+}
+
+.links{
+	display: flex;
+	justify-content: space-between;
+}
+
+.links a{
+	margin: 10px 0;
+	font-size: 0.75em;
+	color: #8f8f8f;
+	text-decoration: none;
+}
+
+.links a:hover,
+.links a:nth-child(2)
+{
+	color: #45f3ff;
+
+}
+
+button[type="button"]{
+	border: none;
+	outline: none;
+	background: #45f3ff;
+	padding: 11px 25px;
+	width: 100px;
+	margin-top: 10px;
+	border-radius: 4px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+
+
+/*--------------------------------------------------CSS FOR SMALL SCREENS-------------------------------------------------------------*/
+
+nav .ri-menu-line{
+	display: none;
+	color: var(--secondary-color);
+}
+
+nav .ri-close-line{
+	display: none;
+	color: var(--secondary-color);
+}
+
+
+@media only screen and (max-width:600px){
+
+.images{
+		width: 200px;
+		height: 460px;
+		top:100px;
+}
+
+
+
+.detel h1{
+     font-size: 30px;
+}
+
+.detel{
+	margin-left: 8%;
+	padding-top: 445px;
+}
+
+.social-links{
+	margin-left: 8%;
+	margin-top: 5px;
+}
+
+nav .ri-menu-line{
+	display: block;
+	color: var(--secondary-color);
+	font-size: 25px;
+	padding-left: 160px;
+}
+
+nav .ri-close-line{
+	display: block;
+	color: var(--secondary-color);
+	font-size: 25px;
+	top: 25px;
+	left: 25px;
+	cursor: pointer;
+	position: absolute;
+}
+
+#navbar ul{
+	background:#AAB7B8;
+	position: fixed;
+	top: 0;
+	right: -200px;
+	width: 130px;
+	height: 100%;
+	padding-top: 50px;
+	z-index: 2;
+	transition: right 0.5s;
+	padding-right: 10px;
+}
+
+#navbar i{
+	padding-right: 8px;
+}
+
+/*----------------------------------------------CSS FOR LOGIN FORM---------------------------------------------------------*/
+.box{
+	width: 390px;
+	left: 5px;
+}
+
+.inputbox i{
+	width: 330px;
+}
+
+.inputbox input:valid ~ i,
+.inputbox input:valid ~ i
+{
+	height: 34px;
+
+}
+
+/*----------------------------------------------FOOTER FOR SMALL SCREENS--------------------------------------------------------*/
+
+
+
+
+}

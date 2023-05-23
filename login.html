@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sign in</title>
+
+	<!--=============== CSS ===============-->
+	<link rel="stylesheet" type="text/css" href="./Css/login.css">
+
+	<!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=============== ICON ===============-->
+	<link rel="icon" type="images" href="./images/pot.png">
+
+</head>
+
+<body>
+
+<div id="hero">
+	<nav id="navbar">
+     		
+     		<a href="index.html #hero" target="_blank"> <h1>Portfo<span>lio</span></h1> </a>
+     		<ul id="menu">
+     			<li> <a href="index.html #hero" target="_blank">HOME</a></li>
+     			<li> <a href="index.html #about" target="_blank">ABOUT </a></li>
+     			
+     			<li> <a href="index.html #portfolio" target="_blank">PROJECTS</a></li>
+     			<li> <a href="index.html #contact" target="_blank">CONTACT</a></li>
+     			<i class="ri-close-line" onclick="closemenu()"></i>
+     		</ul>
+     			<i class="ri-menu-line" onclick="openmenu()"></i>
+
+     		<img src="moon-line.png" id="icon1">
+
+     	</nav>
+     	
+<div id="bbb">
+    <div class="box">
+
+    	<div class="form">
+
+    		<h1>Sign in</h1>
+
+    		<div class="inputbox">
+
+    			<input type="text" required>
+    			<span>Username</span>
+    			<i></i>
+    		</div>
+
+    		<div class="inputbox">
+
+    			<input type="password" required>
+    			<span>Password</span>
+    			<i></i>
+    		</div>
+
+    		<div class="links">
+
+    			<a href="#">Forget Password</a>
+    			<a href="#">Sign Up</a>
+    		</div>
+
+    		<button type="button">Login</button>
+
+
+    	</div>
+    	
+    </div>
+</div>
+</div>
+
+   
+<!----------------------------------------DARK MODE------------------------------------------------->
+
+<script>
+
+	var icon = document.getElementById("icon1");
+
+
+	if (localStorage.getItem("theme") == null){
+
+		localStorage.setItem("theme", "light");
+	}
+
+
+	let localData = localStorage.getItem("theme");
+
+	if(localData == "light"){
+
+		icon1.src = "moon-line.png";
+		document.body.classList.remove("dark-theme"); 
+	}
+	else if(localData == "dark"){
+
+		icon1.src = "sun-line.png";
+		
+		document.body.classList.add("dark-theme"); 
+	}
+
+
+	icon.onclick = function(){
+		document.body.classList.toggle("dark-theme");
+
+		if (document.body.classList.contains("dark-theme")){
+
+			icon1.src = "sun-line.png";
+			
+			localStorage.setItem("theme", "dark");
+
+		}
+		else{
+			icon1.src = "moon-line.png";
+			
+			localStorage.setItem("theme", "light");
+		}
+
+		
+	}
+</script>
+
+<script>
+	//---------------------------NAVBAR FOR SMALL SCREEN (OPEN AND CLOSE ICON)-------------------------------------//
+
+        var menu = document.getElementById("menu");
+
+        function openmenu(){
+          menu.style.right = "0";
+        }
+        function closemenu(){
+          menu.style.right = "-200px";
+        }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+import java.util.*; // for getting user input
+public class ATM_Machine { // start of class
+
+	public static void main(String[] args) { // start of main
+		
+		// declaring and initializing
+		int balance = 15000, withdraw, deposite, num, transfer, cash, recharge, PIN, New_PIN, New_PIN2, choice;
+		
+		Scanner scan = new Scanner(System.in); // creating scanner 
+		
+		while(true) // using while loop
+		{
+			 System.out.println("Welcome to ATM Machine of SBM Mauritius");
+			 System.out.println("press 1 to withdraw");
+			 System.out.println("press 2 to deposite");   // prompt the user to select the number they want 
+			 System.out.println("press 3 to check balance");
+			 System.out.println("press 4 to transfer cash");
+			 System.out.println("press 5 to Recharge your mobile");
+			 System.out.println("press 6 to Change your PIN");
+			 System.out.println("press 7 to exit");
+			 num = scan.nextInt(); // get user input
+			 switch(num) // Using a switch statement to select only one case out of multiple case by the user input
+			 {	
+			 case 1: 
+				 System.out.println("Enter amount to be withdraw"); 
+				 withdraw = scan.nextInt(); // get the withdrawal amount from the user
+				 if (balance >= withdraw) // check whether the balance is greater or equal to the withdrawal amount
+				 {
+					 balance = balance - withdraw; // Remove the withdrawal amount from the total balance
+					// prompt the user that the transaction has been successfully done
+					 System.out.println("Please collect money, thank you for visiting us");
+					 System.out.println("Balance amount is: Rs "+ balance); // display the new bank balance 
+					 System.out.println(" ");
+				 }
+				 else
+				 {
+					// Show a custom error message if condition is false
+					 System.out.println("You don't have enough money"); 
+					 System.out.println(" ");
+				 }
+				// prompt the user if he/she wants to continue or not
+				 System.out.println("Do you want to continue?");
+				 System.out.println("if yes press 1 if not press 0");
+				 choice = scan.nextInt(); // get user choice 
+				 if(choice == 1) {
+					 break;
+				 }
+				 else {
+					 System.exit(0); // end of program (exit the program)
+				 }
+				 System.out.println(" "); // break line
+				 
+				 
+			case 2:
+				 System.out.println("Enter Amount to be deposit");
+				 deposite = scan.nextInt(); // get deposit amount from user
+				 
+				 // method calling
+				 balance = getBalance(balance, deposite);
+				// prompt the user that the transaction has been successfully done
+				 System.out.println("Money has been successfully deposited");
+				 System.out.println("New balance is: Rs "+ balance); // display the new bank balance
+				 System.out.println(" ");
+				 
+				// prompt the user if he/she wants to continue or not
+				 System.out.println("Do you want to continue?");
+				 System.out.println("if yes press 1 if not press 0");
+				 choice = scan.nextInt(); // get user choice 
+				 if(choice == 1) {
+					 break;
+				 }
+				 else {
+					 System.exit(0); // end of program (exit the program)
+				 }
+				 System.out.println(" "); // break line
+				 
+				 
+			 case 3:
+				// display the actual bank balance
+				 System.out.println("The balance of your account is: Rs "+ balance); 
+				 System.out.println(" ");
+				 
+				 // prompt the user if he/she wants to continue or not
+				 System.out.println("Do you want to continue?");
+				 System.out.println("if yes press 1 if not press 0");
+				 choice = scan.nextInt(); // get user choice 
+				 if(choice == 1) {
+					 break;
+				 }
+				 else {
+					 System.exit(0); // end of program (exit the program)
+				 } 
+				 System.out.println(" "); // break line
+				 
+				 
+			 case 4: 
+				 System.out.println("Enter the person bank account");
+				 transfer = scan.nextInt(); // get the person bank account from the user
+				 
+				 System.out.println("Enter amount of cash to be transfer");
+				 cash = scan.nextInt(); // get the user cash amount
+				 
+				 if (balance >= cash) // check whether the balance is greater or equal to the transfer cash amount
+				 {
+					 balance = balance - cash;  //Remove the transfer cash amount from the total balance
+					 
+					 System.out.println("Money has been successfully transferred");
+					 System.out.println("New balance is: Rs "+ balance);  // display the new bank balance
+					 System.out.println(" ");
+				 }
+				 else
+				 {
+					// Show a custom error message if condition is false
+					 System.out.println("You don't have enough money"); 
+					 System.out.println(" ");
+				 }
+				 
+				// prompt the user if he/she wants to continue or not
+				 System.out.println("Do you want to continue?");
+				 System.out.println("if yes press 1 if not press 0");
+				 choice = scan.nextInt(); // get user choice 
+				 if(choice == 1) {
+					 break;
+				 }
+				 else {
+					 System.exit(0); // end of program (exit the program)
+				 }
+				 System.out.println(" "); // break line
+				 
+				 
+			 case 5:
+				 System.out.println("Enter amount");
+				 recharge = scan.nextInt(); // get the amount from the user
+				 if(balance >= recharge) 
+				 {	 
+				// method calling
+				 balance = getRecharge(balance, recharge);
+				 
+				 System.out.println("your mobile have successfully recharged");
+				 System.out.println("New balance is: Rs "+ balance); // display the new bank balance
+				 System.out.println(" ");
+				 }
+				 else 
+				 {
+					// Show a custom error message if condition is false
+					 System.out.println("You don't have enough money");
+					 System.out.println(" ");
+				 }
+				 
+				// prompt the user if he/she wants to continue or not
+				 System.out.println("Do you want to continue?");
+				 System.out.println("if yes press 1 if not press 0");
+				 choice = scan.nextInt(); // get user choice 
+				 if(choice == 1) {
+					 break;
+				 }
+				 else {
+					 System.exit(0); // end of program (exit the program)
+				 }
+				 System.out.println(" "); // break line
+				
+				
+			 case 6:
+				 System.out.println("Enter your current PIN");
+				 PIN = scan.nextInt(); // get current pin from user
+				 
+				 System.out.println("Enter your New PIN");
+				 New_PIN = scan.nextInt(); // get new pin from the user
+				 
+				 if (New_PIN == PIN) // check if condition matches or not 
+				 {
+					System.out.println("Old PIN entered, try another pin");
+					System.out.println(" ");
+					
+					// prompt the user if he/she wants to continue or not
+					 System.out.println("Do you want to continue?");
+					 System.out.println("if yes press 1 if not press 0");
+					 choice = scan.nextInt(); // get user choice 
+					 if(choice == 1)
+					 {
+						 break;
+					 }
+					 else 
+					 {
+						 System.exit(0); // end of program (exit the program)
+					 }
+					 
+				 }
+				 else
+				 System.out.println("Re-enter your New PIN");
+				 New_PIN2 = scan.nextInt(); // re-enter new pin from the user
+				 
+				 if (New_PIN == New_PIN2) // check if condition matches
+				 {
+					 System.out.println("PIN matched"); 
+					// prompt the user that the pin has been successfully changed
+					 System.out.println("Your PIN has been successfully changed"); 
+					 System.out.println(" ");
+				 }
+				 else
+				 {
+					// Show a custom error message if condition is false
+					 System.out.println("PIN is incorrect, Try again");
+					 System.out.println(" ");
+				 }
+				 
+				// prompt the user if he/she wants to continue or not
+				 System.out.println("Do you want to continue?");
+				 System.out.println("if yes press 1 if not press 0");
+				 choice = scan.nextInt(); // get user choice 
+				 if(choice == 1) {
+					 break;
+				 }
+				 else {
+					 System.exit(0); // end of program (exit the program)
+				 }
+				 System.out.println(" "); // break line
+				 
+				 
+			 case 7:
+				 System.exit(0); // program terminates
+				 System.out.println(" "); // break line
+				 break; 
+				 
+				 default:
+					 // display a message if the user enter a wrong case
+					 System.out.println("Invalid choice...try again"); 
+					 System.out.println(" "); // break line
+				 
+				 } // end of switch statement
+				 
+				
+			 } // end of while loop
+					 
+			
+		} // end of main
+	
+		// user defined method
+	public static int getBalance(int balance1, int deposite2) // balance1 and deposite2 are formal parameters
+	{
+		balance1 = balance1 + deposite2;
+		return balance1; // returning the balance1
+	} // end of getBalance method
+	
+	// user defined method
+	public static int getRecharge(int balance1, int recharge1) // balance1 and recharge1 are formal parameters
+	{
+		balance1 = balance1 - recharge1;
+		return balance1; // returning the balance1	
+		
+	} // end of getRecharge method
+
+
+	} // end of class
+
+
