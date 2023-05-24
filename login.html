@@ -32,7 +32,7 @@
      		</ul>
      			<i class="ri-menu-line" onclick="openmenu()"></i>
 
-     		<img src="moon-line.png" id="icon1">
+     		<img src="./images/moon-line.png" id="icon1">
 
      	</nav>
      	
@@ -90,12 +90,12 @@
 
 	if(localData == "light"){
 
-		icon1.src = "moon-line.png";
+		icon1.src = "./images/moon-line.png";
 		document.body.classList.remove("dark-theme"); 
 	}
 	else if(localData == "dark"){
 
-		icon1.src = "sun-line.png";
+		icon1.src = "./images/sun-line.png";
 		
 		document.body.classList.add("dark-theme"); 
 	}
@@ -106,13 +106,13 @@
 
 		if (document.body.classList.contains("dark-theme")){
 
-			icon1.src = "sun-line.png";
+			icon1.src = "./images/sun-line.png";
 			
 			localStorage.setItem("theme", "dark");
 
 		}
 		else{
-			icon1.src = "moon-line.png";
+			icon1.src = "./images/moon-line.png";
 			
 			localStorage.setItem("theme", "light");
 		}
